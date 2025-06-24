@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ykhhljwbbfn"]
+
+[ext_resource type="Script" uid="uid://cbk7wjmbwj8km" path="res://Editor.gd" id="1_glv2v"]
+[ext_resource type="Shader" uid="uid://q81tsir35rof" path="res://RayMarch.gdshader" id="2_uu6xs"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_rxg2q"]
+number_color = Color(0, 0.86269, 0, 1)
+symbol_color = Color(0.9999, 0.443781, 0.375201, 1)
+function_color = Color(0.324447, 0.7133, 1, 1)
+member_variable_color = Color(1, 0.599933, 0.540393, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0du0"]
+shader = ExtResource("2_uu6xs")
+shader_parameter/w = 2.555
+shader_parameter/orig = Vector3(-1.92, -0.015, -0.005)
+shader_parameter/L = Vector3(0.605, 10.125, 10.455)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_glv2v")
+
+[node name="CodeEdit" type="CodeEdit" parent="Control"]
+layout_mode = 0
+offset_right = 388.0
+offset_bottom = 648.0
+theme_override_colors/line_number_color = Color(0.893175, 0.874514, 0.902242, 1)
+syntax_highlighter = SubResource("CodeHighlighter_rxg2q")
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+symbol_lookup_on_click = true
+symbol_tooltip_on_hover = true
+line_folding = true
+gutters_draw_breakpoints_gutter = true
+gutters_draw_bookmarks = true
+gutters_draw_executing_lines = true
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
+indent_use_spaces = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_r0du0")
+offset_left = 392.0
+offset_top = -1.0
+offset_right = 1155.0
+offset_bottom = 649.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 944.0
+offset_top = 565.0
+offset_right = 1151.0
+offset_bottom = 644.0
+text = "Compile"
+
+[connection signal="pressed" from="Button" to="Control" method="compile"]
