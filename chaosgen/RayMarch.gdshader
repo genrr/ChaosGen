@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-uniform float w=1.;
-uniform vec3 orig;
+uniform float w=2.555;
+uniform vec3 orig=vec3(-1.92,-0.015,-0.005);
 float sdf(vec3 p){
 	return length(p)-1.;
 }
@@ -20,7 +20,7 @@ bool march(vec3 dir,vec3 origin,out vec3 N){
 	
 	return false;
 }
-uniform vec3 L;
+uniform vec3 L=vec3(0.605,10.125,10.455);
 void fragment() {
 	COLOR=mix(vec4(0.4,.4,0.7,0.7),vec4(0.8,0.8,0.8,1),UV.y);
 

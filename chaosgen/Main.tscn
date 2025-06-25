@@ -50,7 +50,7 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="view" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_r0du0")
 offset_left = 392.0
 offset_top = -1.0
