@@ -122,7 +122,9 @@ void fragment() {
 func compile():
 	lexicalAnalysis()
 	transpile("")
-	
+func _process(delta: float) -> void:
+	$view.material.set_shader_parameter("rotation", $cam.rot)
+	$view.material.set_shader_parameter("radius", $cam.radius)
 
 			
 		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7ykhhljwbbfn"]
+[gd_scene load_steps=6 format=3 uid="uid://7ykhhljwbbfn"]
 
 [ext_resource type="Script" uid="uid://cbk7wjmbwj8km" path="res://Editor.gd" id="1_glv2v"]
 [ext_resource type="Shader" uid="uid://q81tsir35rof" path="res://RayMarch.gdshader" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://ditj2tqe2hsvu" path="res://camera.gd" id="3_r0du0"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_rxg2q"]
 number_color = Color(0, 0.86269, 0, 1)
@@ -13,6 +14,8 @@ member_variable_color = Color(1, 0.599933, 0.540393, 1)
 shader = ExtResource("2_uu6xs")
 shader_parameter/w = 2.555
 shader_parameter/orig = Vector3(-1.92, -0.015, -0.005)
+shader_parameter/rotation = Vector4(1, 1, 0, 0)
+shader_parameter/radius = 0.0
 shader_parameter/L = Vector3(0.605, 10.125, 10.455)
 
 [node name="Node2D" type="Node2D"]
@@ -52,10 +55,14 @@ auto_brace_completion_highlight_matching = true
 
 [node name="view" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_r0du0")
+layout_mode = 0
 offset_left = 392.0
 offset_top = -1.0
 offset_right = 1155.0
 offset_bottom = 649.0
+
+[node name="cam" type="Node3D" parent="Control"]
+script = ExtResource("3_r0du0")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 944.0
